@@ -16,10 +16,9 @@ export class ShoppingController {
         request: Request,
         response: Response
     ): Promise<Response> {
-        const shopping = request.body;
 
-        await this.shoppingService.saveShopping(shopping);
+        const id = await this.shoppingService.saveShopping();
 
-        return response.status(201).send();
+        return response.status(201).send(id);
     }
 }

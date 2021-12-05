@@ -4,46 +4,9 @@ import { Shoping } from "../domain/shoping";
 import { IShoppingService } from "./interfaces/shopping-service-interface";
 
 export class ShoppingService implements IShoppingService {
-    private shoppingService: IShoppingService;
 
-    constructor({ shoppingService }) {
-        this.shoppingService = shoppingService;
-    }
-
-    async saveShopping({
-        name,
-        shoppingCode,
-        postalCode,
-        publicPlace,
-        number,
-        supplement,
-        district,
-        city,
-        state,
-        phoneNumber,
-        imageURL,
-        description,
-        status,
-    }: Shoping): Promise<void> {
+    async saveShopping(): Promise<string> {
         const shoppingId = uuidV4();
-
-        const shoppingCreate = {
-            id: shoppingId,
-            name,
-            shoppingCode,
-            postalCode,
-            publicPlace,
-            number,
-            supplement,
-            district,
-            city,
-            state,
-            phoneNumber,
-            imageURL,
-            description,
-            status,
-        };
-
-        await this.shoppingService.saveShopping(shoppingCreate);
+        return shoppingId
     }
 }

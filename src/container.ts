@@ -11,6 +11,8 @@ const definition = {
     shoppingRepository: asClass(ShoppingRepository).singleton(),
 };
 
-const container = createContainer().register(definition);
+const container = createContainer();
+
+container.register(definition)
 
 export default container;

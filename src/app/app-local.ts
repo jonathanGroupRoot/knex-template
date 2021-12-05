@@ -32,6 +32,7 @@ app.use(
 );
 
 app.use(scopePerRequest(container));
-app.use(loadControllers("./../api/controllers/*.js", { cwd: __dirname }));
+
+app.use(loadControllers("../api/controllers/*.ts", { cwd: __dirname }));
 
 export default app;
