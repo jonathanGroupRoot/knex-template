@@ -1,12 +1,13 @@
-import { Knex } from "knex";
+import Knex from "knex";
 
 import { Shoping } from "../domain/shoping";
 import { IShoppingRepository } from "./interfaces/shopping-repository-interface";
 
 export class ShoppingRepository implements IShoppingRepository {
-    private tableName = "shoopings";
+    private tableName = "shoppings";
 
     private db: Knex;
+
     constructor({ db }) {
         this.db = db;
     }

@@ -11,15 +11,17 @@ const appShopping = express();
 
 appShopping.disable("x-powered-by");
 appShopping.use(compression());
+
 appShopping.use(helmet());
+
 appShopping.use(express.urlencoded({ extended: true }));
 appShopping.use(express.json());
-appShopping.use(scopePerRequest(container));
 
-appShopping.use("/events*");
+appShopping.use(scopePerRequest(container));
+appShopping.use("/shopping*");
 
 appShopping.use(
-    loadControllers("./../api/controllers/events-controller.js", {
+    loadControllers("./../api/controllers/shopping-controller.js", {
         cwd: __dirname,
     })
 );

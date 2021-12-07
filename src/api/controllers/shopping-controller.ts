@@ -1,4 +1,4 @@
-import { POST, route } from "awilix-express";
+import { GET, POST, route } from "awilix-express";
 import { Request, Response } from "express";
 
 import { IShoppingService } from "../../service/interfaces/shopping-service-interface";
@@ -14,11 +14,17 @@ export class ShoppingController {
     @POST()
     async createShopping(
         request: Request,
+
         response: Response
     ): Promise<Response> {
-
-        const id = await this.shoppingService.saveShopping();
+        const shopping = request.body;
+        const id = await this.shoppingService.saveShopping(shopping);
 
         return response.status(201).send(id);
+    }
+
+    @GET()
+    async listShopping(request, response) {
+        return response.json({ Sucesso: true });
     }
 }
